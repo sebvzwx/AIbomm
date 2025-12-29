@@ -14,3 +14,18 @@
 .cxx
 local.properties
 .env
+.env.*
+
+# Android Studio
+.idea/
+*.iml
+*.iws
+
+# Gradle
+.gradle/
+build/
+
+# Misc
+.DS_Store
+*.bak
+*.log
