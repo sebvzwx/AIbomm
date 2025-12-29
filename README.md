@@ -43,10 +43,14 @@ AIbomm 是一款基于 Android 平台的智能笔记与灵感捕捉工具。它�
    - Android SDK 34+
 
 ## 📸 预览
-![alt text](7bdb199e93fc81d845174dc1d2342462.jpg)
-![alt text](a82e465241634f1846392585a570d6c9.png)
-![alt text](c79cb960a98c068f5c0fba8546616c13.jpg)
-*(在此处添加应用截图)*
+
+<div align="center">
+  <img src="7bdb199e93fc81d845174dc1d2342462.jpg" width="32%" />
+  <img src="a82e465241634f1846392585a570d6c9.png" width="32%" />
+  <img src="c79cb960a98c068f5c0fba8546616c13.jpg" width="32%" />
+</div>
+
+*(AIbomm 预览图)*
 
 ## 📄 开源协议
 
