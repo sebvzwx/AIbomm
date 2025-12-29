@@ -1,0 +1,44 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="60dp"
+    android:height="60dp"
+    android:viewportWidth="60"
+    android:viewportHeight="60">
+    <group
+        android:pivotX="30"
+        android:pivotY="30">
+        <!-- Outer soft glow (Rounded Rect) -->
+        <path
+            android:pathData="M10,6 L50,6 A4,4 0 0 1 54,10 L54,50 A4,4 0 0 1 50,54 L10,54 A4,4 0 0 1 6,50 L6,10 A4,4 0 0 1 10,6 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:centerX="30"
+                    android:centerY="30"
+                    android:gradientRadius="30"
+                    android:type="radial">
+                    <item android:color="#33007AFF" android:offset="0.0" />
+                    <item android:color="#0D007AFF" android:offset="0.8" />
+                    <item android:color="#00007AFF" android:offset="1.0" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <!-- Inner core (Rounded Rect) -->
+        <path
+            android:pathData="M16,16 L44,16 A8,8 0 0 1 52,24 L52,36 A8,8 0 0 1 44,44 L16,44 A8,8 0 0 1 8,36 L8,24 A8,8 0 0 1 16,16 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:centerX="30"
+                    android:centerY="30"
+                    android:gradientRadius="24"
+                    android:type="radial">
+                    <item android:color="#4DDAFF" android:offset="0.0" />
+                    <item android:color="#007AFF" android:offset="1.0" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <!-- Highlight/Glaze -->
+        <path
+            android:pathData="M18,18 L42,18 A4,4 0 0 1 46,22 L14,22 A4,4 0 0 1 18,18 Z"
+            android:fillColor="#40FFFFFF" />
+    </group>
+</vector>

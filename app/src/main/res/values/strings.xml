@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">待办</string>
+    <string name="widget_title">闪念胶囊</string>
+    <string name="widget_empty_preview">点击 + 立刻记下</string>
+    <string name="widget_input_hint">想到什么，立刻记下…</string>
+    <string name="widget_opacity_title">背景透明度</string>
+    <string name="widget_opacity_done">完成</string>
+</resources>
