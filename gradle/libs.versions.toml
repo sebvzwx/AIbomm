@@ -14,6 +14,8 @@ retrofit = "2.11.0"
 okhttp = "4.12.0"
 room = "2.6.1"
 ksp = "2.0.0-1.0.21"
+markdown = "0.3.1"
+coil = "2.6.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +41,8 @@ okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor",
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+compose-markdown = { group = "com.github.jeziellago", name = "compose-markdown", version.ref = "markdown" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

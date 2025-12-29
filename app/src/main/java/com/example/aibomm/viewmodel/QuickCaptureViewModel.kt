@@ -10,6 +10,8 @@ import com.example.aibomm.widget.TodoWidget2x2Provider
 import com.example.aibomm.widget.TodoWidget4x1Provider
 import com.example.aibomm.widget.WidgetUpdater
 import com.example.aibomm.api.AiRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -88,12 +90,14 @@ class QuickCaptureViewModel(application: Application) : AndroidViewModel(applica
     // Real AI process
     fun processWithAi(text: String, onResult: (String, String, String, String, String?, String?) -> Unit) {
         viewModelScope.launch {
-            val result = aiRepository.processNote(text)
+            val result = withContext(Dispatchers.IO) {
+                aiRepository.processNote(text)
+            }
             if (result != null) {
                 onResult(
                     result.title,
                     result.refinedContent, // The organized text
-                    "", // No tags as requested
+                    result.tags,
                     result.intent,
                     result.intent,
                     result.intentPayload?.toString()

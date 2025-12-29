@@ -42,24 +42,36 @@ class AiRepository {
         if (apiKey.isBlank()) return null
 
         val prompt = """
-            你是一个AI闪念胶囊助手。请根据用户的输入内容（可能是凌乱的语音转文字或简短碎片），直接进行整理和润色，生成一个结构清晰、逻辑通顺的总结。
-            
-            任务要求：
-            1. 整理内容：修正语法错误，补全省略信息，使其成为一段专业的笔记。
-            2. 生成标题：提取一个20字以内的核心标题。
-            3. 识别意图：判断用户是否想创建待办事项(todo)、日程(calendar)、保存链接(link)或仅仅是记录信息(info)。
-            4. 提取信息：如果是日程或待办，提取时间地点等关键要素。
+            你是一个 AI 闪念胶囊助手，包含两个核心模块：
+            1. 智能整理者 (The Organizer Agent)：
+               - 自动排版：修正标点，通过换行和缩进优化可读性。
+               - 摘要生成：如果字数 > 100字，自动在顶部生成一句话 TL;DR。
+               - 标签预测：分析内容，自动预测标签（如：灵感、工作、生活、日程等）。
+            2. 行动路由 (The Action Router)：
+               - 识别用户意图，并将其映射为功能调用。
+               - 支持的指令意图：
+                 - "calendar" -> 创建日程（识别时间地点）。
+                 - "alarm" -> 设置闹钟（识别时间）。
+                 - "message" -> 发送消息（识别联系人和内容）。
+                 - "info" -> 普通记录。
 
             输入内容：
             $content
 
-            请严格以 JSON 格式返回结果，不要包含任何标签提取任务，格式如下：
+            请严格以 JSON 格式返回结果，格式如下：
             {
-              "title": "...",
-              "refined_content": "这里填写整理润色后的详细内容...",
-              "summary": "这里填写一句话的核心总结...",
-              "intent": "...",
-              "intentPayload": "..."
+              "title": "20字以内的核心标题",
+              "refined_content": "整理润色排版后的完整内容，包含 TL;DR (如果字数多)",
+              "summary": "简短的摘要或润色后的主文本",
+              "tags": "标签1,标签2",
+              "intent": "calendar | alarm | message | info",
+              "intentPayload": {
+                  "time": "ISO格式时间(如有)",
+                  "location": "地点(如有)",
+                  "contact": "联系人(如有)",
+                  "message": "内容(如有)",
+                  "raw_text": "原始意图描述"
+              }
             }
         """.trimIndent()
 
@@ -101,6 +113,7 @@ data class AiProcessResult(
     val title: String,
     @SerialName("refined_content") val refinedContent: String,
     val summary: String,
+    val tags: String = "",
     val intent: String,
     @SerialName("intentPayload") val intentPayload: JsonElement? = null
 )
